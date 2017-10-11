@@ -1,1 +1,20 @@
-<h1>Yes, this is posts home page</h1>
+<h1 >Welcome to my very first python blog! </h1>
+
+<h2> Latest Posts </h2>
+
+{% for post in posts.all  %}
+
+    {{ post.title }}
+    <br />
+    {{ post.pub_date_pretty }}
+    <br />
+    <img src="{{ post.image.url }}" />
+    
+    <br />
+    {{ post.summary }}
+
+    <br />
+    <br />
+    <br />
+
+{% endfor %}

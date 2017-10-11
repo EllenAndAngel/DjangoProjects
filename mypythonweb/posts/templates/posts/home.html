@@ -12,50 +12,67 @@
 <title>Ellen python web</title>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Ellen's Web</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">TWitter</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">FaceBook</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">WeChat</a>
-            </li>
-        </ul>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Ellen's Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TWitter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FaceBook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">WeChat</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="text-center">Ellen's Python web !</h1>
+    {% load static %}
+    <center>
+        <img src="{% static 'posts/home.jpg'%}" class="img-response center-block" style="max-height:500px;"/>
+    </center>
+    <br />
+    <br />
+
+    <h4> Latest Posts </h4>
+    <hr/>
+    <div class="container">
+        {% for post in posts.all %}
+
+        <a href="{% url 'post_detail' post.id %}"><h3>{{ post.title }}</h3></a>
+        <br/>
+
+        <h4><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            {{ post.pub_date_pretty }}
+        </h4>
+        <br/>
+        <center>
+            <img src="{{ post.image.url }}" class="img-responsive center-block" style="max-height:1000px;"/>
+        </center>
+        <br/>
+        {{ post.summary }}
+        <a href="{% url 'post_detail' post.id %}">... More ... </a>
+
+
+        <br/>
+
+        <br/>
+        <hr />
+        <br/>
+
+        {% endfor %}
     </div>
-</nav>
-<h1>Ellen's Python web !</h1>
-<h4> Latest Posts </h4>
-
-{% for post in posts.all %}
-
-    <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-    <br/>
-    {{ post.pub_date_pretty }}
-    <br/>
-    <img src="{{ post.image.url }}"/>
-
-    <br/>
-    {{ post.summary }}
-    <a href="{% url 'post_detail' post.id %}">... More ... </a>
-
-
-    <br/>
-    <br/>
-    <br/>
-
-{% endfor %}
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

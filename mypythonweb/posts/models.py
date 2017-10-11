@@ -14,7 +14,7 @@ class Post(models.Model):
         return self.title
 
     def pub_date_pretty(self):
-        return "Publish Date : " + self.pub_date.strftime('%e/%b/%Y')
+        return self.pub_date.strftime('%e/%b/%Y')
 
     def summary(self):
         return self.body[:100]

@@ -17,3 +17,7 @@ Step3: Build your website
 - html files under templates directory, render
 - settings.py: config TEMPLATES->'DIRS'->'templates'
 		
+
+# Add some fancy things
+- <a href="http://http://getbootstrap.com/">Bootstrap</a>
+- <a href="https://disqus.com/">Disqus</a> 

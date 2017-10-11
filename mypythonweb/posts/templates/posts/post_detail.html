@@ -12,38 +12,66 @@
 </head>
 <title>Ellen python web</title>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Ellen's Web</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">TWitter</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">FaceBook</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">WeChat</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<h3>{{ post.title }}</h3>
-{{ post.pub_date_pretty }}
-<br/>
-<img src="{{ post.image.url }}"/>
-<br/>
-{{ post.body }}
+<div class="container">
 
-<br/>
-<a href="{% url 'home' %}">Back to Home </a>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="{% url 'home' %}">Ellen's Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://twitter.com">TWitter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://facebook.com">FaceBook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="http://wechat.com">WeChat</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <h2>{{ post.title }}</h2>
+        <hr/>
+        <h6>{{ post.pub_date_pretty }}</h6>
+        <center>
+            <img src="{{ post.image.url }}" class="img-responsive center-block"/>
+        </center>
+        <br/>
+        {{ post.body }}
+
+        <br/><br/>
+        <a href="{% url 'home' %}">Back to Home </a>
+    </div>
+
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://djangojungle.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+
+    </script>
+
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

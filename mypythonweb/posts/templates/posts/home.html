@@ -4,17 +4,20 @@
 
 {% for post in posts.all  %}
 
-    {{ post.title }}
-    <br />
+    <a href="{% url 'post_detail' post.id %}"><h3>{{ post.title }}</h3></a>
+
     {{ post.pub_date_pretty }}
     <br />
     <img src="{{ post.image.url }}" />
 
     <br />
     {{ post.summary }}
+        <a href="{% url 'post_detail' post.id %}">... More ... </a>
+
 
     <br />
     <br />
     <br />
 
 {% endfor %}
+

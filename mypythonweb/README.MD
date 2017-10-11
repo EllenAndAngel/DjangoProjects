@@ -4,7 +4,7 @@
 # Create app
 - python manage.py startapp posts
 
-#Create Model
+# Create Model
 - models.py 
 	class Post(models.Model):
 - python manage.py makemigrations

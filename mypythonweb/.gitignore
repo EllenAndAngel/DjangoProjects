@@ -2,3 +2,4 @@
 media/
 mypythonweb/__pycache__/
 posts/__pycache__/
+mypythonweb/posts/static/

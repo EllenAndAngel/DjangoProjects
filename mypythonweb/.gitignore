@@ -1,2 +1,4 @@
 .idea
 media/
+mypythonweb/__pycache__/
+posts/__pycache__/

@@ -12,8 +12,8 @@ Step3: start up test server
 -- python manage.py runserver
 
 Step3: Build your website
-- urls.py: config urls 
+- urls.py: config urls, like controllers
 - views.py: business logic
-- html files under templates directory, render page
+- html files under templates directory, render
 - settings.py: config TEMPLATES->'DIRS'->'templates'
 		

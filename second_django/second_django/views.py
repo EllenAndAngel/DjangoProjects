@@ -11,7 +11,10 @@ def index(request):
 	return render(request,'index.html')
 
 def translate(request):
+	# Get request content
 	original_text = request.GET['originaltext'].lower()
+
+	# Do business logic
 	originals = original_text.split()
 	translation = ''
 
@@ -26,6 +29,7 @@ def translate(request):
 			translation += word[0]
 			translation += 'ay '
 
+	# render page
 	return render(request,'translate.html',
 		{'original':original_text ,'translation':translation})
 

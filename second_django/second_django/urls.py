@@ -26,3 +26,11 @@ urlpatterns = [
 
 
 ]
+
+"""
+r'^about/',  : address
+views.about, : views.py->function:about
+name='about' : used by html files, 
+ -- for example <a href="{% url 'about' %}">About</a> (about.html)
+
+"""

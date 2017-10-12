@@ -15,10 +15,11 @@
 
 # Register app
 - settings.py 
+
 '''python
-	  INSTALLED_APPS = [
-	    ...
-	    'posts',
-	    'siteapp',
-	  ]
+    INSTALLED_APPS = [
+      ...
+      'posts',
+      'siteapp',
+    ]
 '''

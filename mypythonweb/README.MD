@@ -12,3 +12,13 @@
 
 # Create superuser
 - python manage.py createsuperuser
+
+# Register app
+- settings.py 
+'''python
+	  INSTALLED_APPS = [
+	    ...
+	    'posts',
+	    'siteapp',
+	  ]
+'''

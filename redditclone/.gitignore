@@ -1,3 +1,5 @@
 .idea
-/redditclone/redditclone/__pycache__/*.pyc
-/redditclone/posts/__pycache__/*.pyc
+media/
+redditclone/__pycache__/
+posts/__pycache__/
+accounts/__pycache__/

@@ -1,0 +1,20 @@
+<h1>Logout</h1>
+
+{% if error %}
+    {{ error }}
+{% endif %}
+<hr />
+
+{% if succ %}
+    {{ succ }}
+{% endif %}
+
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+
+    <br/>
+
+    <hr />
+    <input type="submit" value="Let Me Out !">
+
+</form>

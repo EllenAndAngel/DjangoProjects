@@ -3,11 +3,11 @@
 {% if error %}
     {{ error }}
 {% endif %}
-<hr />
+<hr/>
 
-{% if succ %}
-    {{ succ }}
-{% endif %}
+{#{% if succ %}#}
+{#    {{ succ }}#}
+{#{% endif %}#}
 
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
@@ -22,7 +22,7 @@
     <br/>
     <input type="password" name="password"/>
     <br/>
-    <hr />
+    <hr/>
     <input type="submit" value="Let Me In!">
 
 </form>

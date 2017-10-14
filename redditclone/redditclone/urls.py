@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^signup/', aviews.user_signup, name='signup'),
     url(r'^login/', aviews.user_login, name='login'),
     url(r'^logout/', aviews.user_logout, name='logout'),
-    url(r'^', pviews.home, name='home')
+    url(r'^$', pviews.home, name='home')
 
 ]

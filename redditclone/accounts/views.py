@@ -33,9 +33,9 @@ def user_login(request):
         if user is not None:
             login(request, user)
 
-            return render(request, 'posts/home.html', {'succ': 'You are in! '})
+            return render(request, 'posts/home.html')
         else:
-            return render(request, 'accounts/login.html', {'error': 'Username and password is wrong'})
+            return render(request, 'accounts/login.html', {'error': 'Username and password didn\'t match!'})
 
     else:
         return render(request, 'accounts/login.html')

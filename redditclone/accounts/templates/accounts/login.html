@@ -9,7 +9,7 @@
 {#    {{ succ }}#}
 {#{% endif %}#}
 
-<form method="POST" action="{% url 'login' %}">
+<form method="POST" action="{% url 'accounts:login' %}">
     {% csrf_token %}
 
     <br/>

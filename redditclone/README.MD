@@ -10,4 +10,18 @@
 - html files
 - change url to : {% url 'accounts:login' %}
 
+# next and redirect
 
+- accounts/login.html : 
+    {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+    {% endif %}
+
+- accounts/views.py-> user_login
+
+    if 'next' in request.POST:
+        return redirect(request.POST['next'])
+
+- posts/views.py
+
+  @login_required

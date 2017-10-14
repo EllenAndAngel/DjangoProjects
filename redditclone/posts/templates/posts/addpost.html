@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new post</title>
+</head>
+<body>
+
+<h1>New Post</h1>
+
+{% if error %}
+    {{ error }}
+{% endif %}
+<hr/>
+
+
+<form method="POST" action="{% url 'posts:addpost' %}">
+    {% csrf_token %}
+
+    <br/>
+    Title :
+    <br/>
+
+    <input type="text" name="title"/>
+    <br/>
+    URL:
+    <br/>
+    <input type="text" name="url"/>
+    <br/>
+    <hr/>
+    <input type="submit" value="Post !">
+
+</form>
+</body>
+</html>

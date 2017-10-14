@@ -17,7 +17,7 @@ def user_signup(request):
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
                 login(request, user)
 
-                return render(request, 'accounts/signup.html')
+                return render(request, 'accounts/login.html')
 
         else:
             return render(request, 'accounts/signup.html', {'error': 'Passwords didn\'t match!'})
@@ -32,7 +32,8 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-
+            if 'next' in request.POST:
+                return redirect(request.POST['next'])
             return render(request, 'posts/home.html')
         else:
             return render(request, 'accounts/login.html', {'error': 'Username and password didn\'t match!'})

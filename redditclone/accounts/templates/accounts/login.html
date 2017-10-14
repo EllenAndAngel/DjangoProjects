@@ -5,12 +5,13 @@
 {% endif %}
 <hr/>
 
-{#{% if succ %}#}
-{#    {{ succ }}#}
-{#{% endif %}#}
 
 <form method="POST" action="{% url 'accounts:login' %}">
     {% csrf_token %}
+
+    {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+    {% endif %}
 
     <br/>
     User Name :

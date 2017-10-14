@@ -5,7 +5,7 @@
 
 - create a new urls.py under accounts directory
 - accounts/urls.py
-- add: app_name = 'accounts', the rest part is same as urls.py under redditclone
+- add: app_name = 'accounts', the rest part is same as redditclone/urls.py
 
 - html files
 - change url to : {% url 'accounts:login' %}

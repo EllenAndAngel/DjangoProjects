@@ -1,29 +1,34 @@
-<h1>Sign Up</h1>
+{% extends 'base.html' %}
 
-{% if error %}
-    {{ error }}
-{% endif %}
-<hr />
+{% block content %}
+    <h1>Sign Up</h1>
 
-<form method="POST" action="{% url 'accounts:signup' %}">
-    {% csrf_token %}
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    <hr/>
+
+    <form method="POST" action="{% url 'accounts:signup' %}">
+        {% csrf_token %}
 
 
-    <br/>
-    User Name :
-    <br/>
+        <br/>
+        User Name :
+        <br/>
 
-    <input type="text" name="username"/>
-    <br/>
-    Password:
-    <br/>
-    <input type="password" name="password"/>
-    <br/>
-    Confirmate Password:
-    <br/>
-    <input type="password" name="confirmation_password"/>
-    <br/>
-    <hr />
-    <input type="submit" value="Sign Me Up!">
+        <input type="text" name="username"/>
+        <br/>
+        Password:
+        <br/>
+        <input type="password" name="password"/>
+        <br/>
+        Confirmate Password:
+        <br/>
+        <input type="password" name="confirmation_password"/>
+        <br/>
+        <hr/>
+        <input class="btn btn-primary" type="submit" value="Sign Me Up!">
 
-</form>
+    </form>
+
+{% endblock %}

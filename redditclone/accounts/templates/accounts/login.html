@@ -1,29 +1,35 @@
-<h1>Login</h1>
+{% extends 'base.html' %}
 
-{% if error %}
-    {{ error }}
-{% endif %}
-<hr/>
+{% block content %}
 
+    <h1>Login</h1>
 
-<form method="POST" action="{% url 'accounts:login' %}">
-    {% csrf_token %}
-
-    {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+    {% if error %}
+        {{ error }}
     {% endif %}
-
-    <br/>
-    User Name :
-    <br/>
-
-    <input type="text" name="username"/>
-    <br/>
-    Password:
-    <br/>
-    <input type="password" name="password"/>
-    <br/>
     <hr/>
-    <input type="submit" value="Let Me In!">
 
-</form>
+
+    <form method="POST" action="{% url 'accounts:login' %}">
+        {% csrf_token %}
+
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        {% endif %}
+
+        <br/>
+        User Name :
+        <br/>
+
+        <input type="text" name="username"/>
+        <br/>
+        Password:
+        <br/>
+        <input type="password" name="password"/>
+        <br/>
+        <hr/>
+        <input class="btn btn-primary" type="submit" value="Let Me In!">
+
+    </form>
+
+{% endblock %}

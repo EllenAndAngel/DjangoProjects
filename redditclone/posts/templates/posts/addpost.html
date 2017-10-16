@@ -1,35 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add a new post</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<h1>New Post</h1>
+{% block content %}
 
-{% if error %}
-    {{ error }}
-{% endif %}
-<hr/>
+    <h1>New Post</h1>
 
-
-<form method="POST" action="{% url 'posts:addpost' %}">
-    {% csrf_token %}
-
-    <br/>
-    Title :
-    <br/>
-
-    <input type="text" name="title"/>
-    <br/>
-    URL:
-    <br/>
-    <input type="text" name="url"/>
-    <br/>
+    {% if error %}
+        {{ error }}
+    {% endif %}
     <hr/>
-    <input type="submit" value="Post !">
 
-</form>
-</body>
-</html>
+
+    <form method="POST" action="{% url 'posts:addpost' %}">
+        {% csrf_token %}
+
+        <br/>
+        Title :
+        <br/>
+
+        <input type="text" name="title"/>
+        <br/>
+        URL:
+        <br/>
+        <input type="text" name="url"/>
+        <br/>
+        <hr/>
+        <input class="btn btn-primary" type="submit" value="Post !">
+
+    </form>
+
+{% endblock %}

@@ -6,7 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def user_signup(request):
     if request.method == 'POST':
-        if request.POST['password'] == request.POST['confirmation_password']:
+        if request.POST['username'] == '':
+            return render(request, 'accounts/signup.html', {'error': 'Username cannot be empty!'})
+        elif request.POST['password'] == request.POST['confirmation_password']:
 
             try:
                 User.objects.get(username=request.POST['username'])
@@ -17,7 +19,7 @@ def user_signup(request):
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
                 login(request, user)
 
-                return render(request, 'accounts/login.html')
+                return redirect('home')
 
         else:
             return render(request, 'accounts/signup.html', {'error': 'Passwords didn\'t match!'})
@@ -34,7 +36,7 @@ def user_login(request):
             login(request, user)
             if 'next' in request.POST:
                 return redirect(request.POST['next'])
-            return render(request, 'posts/home.html')
+            return redirect('home')
         else:
             return render(request, 'accounts/login.html', {'error': 'Username and password didn\'t match!'})
 
@@ -45,6 +47,4 @@ def user_login(request):
 def user_logout(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('accounts:login')
-    else:
-        return render(request,'accounts/logout.html')
+        return redirect('home')

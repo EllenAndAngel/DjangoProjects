@@ -13,20 +13,22 @@
 # next and redirect
 
 - accounts/login.html : 
- '{% if request.GET.next %}
-  '   <input type="hidden" name="next" value="{{ request.GET.next }}"/>'
- '{% endif %}
+
+	'{% if request.GET.next %}
+	'   <input type="hidden" name="next" value="{{ request.GET.next }}"/>'
+ 	'{% endif %}
 
 - accounts/views.py-> user_login
 
- 'if 'next' in request.POST:
-  '  return redirect(request.POST['next'])' 
+ 	'if 'next' in request.POST:
+  	'return redirect(request.POST['next'])' 
 
 - posts/views.py
 
 	'@login_required'
 
 # block content 
+
     '<div class="container">'
 
     '{% block content %}'
@@ -40,4 +42,3 @@
 	'{% endblock %}'
 
 
-Inline `code` has `back-ticks around` it.
